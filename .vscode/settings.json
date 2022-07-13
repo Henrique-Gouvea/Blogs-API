@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "Inciando o projeto ",
     "migrations",
-    "models"
+    "models",
+    "routes"
   ]
 }

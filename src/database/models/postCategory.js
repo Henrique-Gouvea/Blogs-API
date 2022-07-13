@@ -15,7 +15,7 @@ const createPostCategoryModel = (sequelize, DataTypes) => {
     })
   }
   PostCategory.associate = (models) => {
-    PostCategory.belongsTo(models.User, {
+    PostCategory.belongsTo(models.Category, {
       as: 'category',
       foreignKey: 'categoryId'
     })
