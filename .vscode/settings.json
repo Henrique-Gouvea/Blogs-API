@@ -1,5 +1,6 @@
 {
   "conventionalCommits.scopes": [
-    "Inciando o projeto "
+    "Inciando o projeto ",
+    "migrations"
   ]
 }
