@@ -3,6 +3,7 @@
     "Inciando o projeto ",
     "migrations",
     "models",
-    "routes"
+    "routes",
+    "controllers"
   ]
 }
