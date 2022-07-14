@@ -4,6 +4,7 @@
     "migrations",
     "models",
     "routes",
-    "controllers"
+    "controllers",
+    "schema"
   ]
 }
