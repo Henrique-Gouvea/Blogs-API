@@ -5,6 +5,7 @@
     "models",
     "routes",
     "controllers",
-    "schema"
+    "schema",
+    "middleware"
   ]
 }
