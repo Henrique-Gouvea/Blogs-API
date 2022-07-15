@@ -2,9 +2,9 @@
 
 const validateBody = ({ email, password }) => {
   if (!email || !password) {
-    const e = new Error('Some required fields are missing');
-    e.name = 'ValidationError';
-    throw e;
+    const err = new Error('Some required fields are missing');
+    err.name = 'ValidationError';
+    throw err;
   }
   return { email, password };
 };
