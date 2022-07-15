@@ -1,11 +1,11 @@
 'use strict';
 const createCategoryModel = (sequelize, DataTypes) => {
   const Category = sequelize.define('Category', {
-    id: DataTypes.INTEGER,
+    id: { type: DataTypes.INTEGER, primaryKey: true},
     name: DataTypes.STRING,
   }, {
-    underscored: true,
-    tableName: 'Categories'
+    tableName: 'Categories',
+    timestamps: false,
   })
   return Category;
 };

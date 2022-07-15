@@ -1,11 +1,22 @@
 'use strict';
 const createPostCategoryModel = (sequelize, DataTypes) => {
   const PostCategory = sequelize.define('PostCategory', {
-    postId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
+    postId: {
+      type: DataTypes.INTEGER,
+      reference: {
+        model: 'BlogPost',
+        key: 'id'
+      },
+    },
+    categoryId: {
+      type:DataTypes.INTEGER,
+      reference: {
+        model: 'Category',
+        key: 'id'
+      }
+    }
   }, {
-    underscored: true,
-    tableName: 'PostCategories'
+    timestamps: false,
   })
 
   PostCategory.associate = (models) => {

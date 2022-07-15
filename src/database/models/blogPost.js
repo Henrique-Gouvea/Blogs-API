@@ -1,19 +1,18 @@
 'use strict';
 const createBlogPostModel = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define('BlogPost', {
-    id: DataTypes.INTEGER,
+    id: { type: DataTypes.INTEGER, primaryKey: true},
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     published: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    updated: DataTypes.DATE
   }, {
-    underscored: true,
-    tableName: 'BlogPosts'
+    timestamps: false,
   })
 
   BlogPost.associate = (models) => {
-    PostCategory.belongsTo(models.User, {
+    BlogPost.belongsTo(models.User, {
       as: 'user',
       foreignKey: 'userId'
     })
