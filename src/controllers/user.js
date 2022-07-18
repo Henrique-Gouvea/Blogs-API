@@ -9,7 +9,7 @@ const addUser = async (req, res, next) => {
   }
 };
 
-const getAllUsers = async (req, res, next) => {
+const getAllUsers = async (_req, res, next) => {
   try {
     const users = await services.getAllUsers();
     res.status(200).json(users);
@@ -18,4 +18,14 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
-module.exports = { addUser, getAllUsers };
+const getUserId = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const user = await services.getUserId(id);
+    res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addUser, getAllUsers, getUserId };

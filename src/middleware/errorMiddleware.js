@@ -1,7 +1,7 @@
 const errors = {
     ValidationError: 400,
     Unauthorized: 401,
-    NotFoundError: 404,
+    NotFound: 404,
     Conflict: 409,
     InternalServer: 500,
   };

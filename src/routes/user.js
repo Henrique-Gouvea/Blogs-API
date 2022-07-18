@@ -10,4 +10,6 @@ userRoute.use(tokenMiddleware);
 
 userRoute.get('/', controllers.getAllUsers);
 
+userRoute.get('/:id', controllers.getUserId);
+
 module.exports = userRoute;
