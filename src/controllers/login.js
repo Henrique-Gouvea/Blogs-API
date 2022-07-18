@@ -2,7 +2,7 @@ const services = require('../services');
 
 const login = async (req, res, next) => {
   try {
-    services.validateBody(req.body);
+    services.validateLogin(req.body);
     const token = await services.validateCredentials(req.body);
     res.status(200).json({ token });
   } catch (error) {

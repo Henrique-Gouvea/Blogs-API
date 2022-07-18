@@ -1,8 +1,14 @@
-const { validateBody, validateCredentials } = require('./validateBody');
+const { validateLogin, validateCredentials, validateUser } = require('./validateBody');
 const { checkPassword } = require('./password');
+const { createToken, validateToken } = require('./token');
+const { addUser } = require('./user');
 
 module.exports = {
-  validateBody,
+  validateLogin,
   validateCredentials,
+  validateUser,
   checkPassword,
+  createToken,
+  validateToken,
+  addUser,
 };
