@@ -8,4 +8,6 @@ categoriesRoute.use(tokenMiddleware);
 
 categoriesRoute.post('/', controllers.addCategorie);
 
+categoriesRoute.get('/', controllers.getAllCategories);
+
 module.exports = categoriesRoute;

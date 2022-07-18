@@ -8,7 +8,7 @@ const {
 const { checkPassword } = require('./password');
 const { createToken, validateToken } = require('./token');
 const { addUser, getAllUsers, getUserId } = require('./user');
-const { addCategorie } = require('./categories');
+const { addCategorie, getAllCategories } = require('./categories');
 
 module.exports = {
   validateLogin,
@@ -25,4 +25,5 @@ module.exports = {
   getUserId,
 
   addCategorie,
+  getAllCategories,
 };

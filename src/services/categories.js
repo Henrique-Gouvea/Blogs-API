@@ -14,4 +14,15 @@ const addCategorie = async ({ name }) => {
   return { id: user.null, name };
 };
 
-module.exports = { addCategorie };
+const getAllCategories = async () => {
+  const categories = await Category.findAll();
+  if (!categories) {
+    const e = new Error('Problem in DB');
+    e.name = 'InternalServer';
+    throw e;
+  }
+
+  return categories;
+};
+
+module.exports = { addCategorie, getAllCategories };
