@@ -10,10 +10,20 @@ const addUser = async ({ displayName, email, password, image }) => {
     e.name = 'Conflict';
     throw e;
   }
-  const confirmeCadaster = await User.create({ displayName, email, password, image });
-  console.log(confirmeCadaster);
+  await User.create({ displayName, email, password, image });
   const token = createToken({ displayName, email, image });
   return token;
 };
 
-module.exports = { addUser };
+const getAllUsers = async () => {
+  const users = await User.findAll({ attributes: { exclude: ['password'] } });
+  if (!users) {
+    const e = new Error('Problem in DB');
+    e.name = 'InternalServer';
+    throw e;
+  }
+
+  return users;
+};
+
+module.exports = { addUser, getAllUsers };

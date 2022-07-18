@@ -1,7 +1,7 @@
 const { validateLogin, validateCredentials, validateUser } = require('./validateBody');
 const { checkPassword } = require('./password');
 const { createToken, validateToken } = require('./token');
-const { addUser } = require('./user');
+const { addUser, getAllUsers } = require('./user');
 
 module.exports = {
   validateLogin,
@@ -11,4 +11,5 @@ module.exports = {
   createToken,
   validateToken,
   addUser,
+  getAllUsers,
 };

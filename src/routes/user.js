@@ -4,10 +4,10 @@ const userRoute = express.Router();
 const controllers = require('../controllers');
 const tokenMiddleware = require('../middleware/tokenMiddleware');
 
-userRoute.post('/', controllers.user);
+userRoute.post('/', controllers.addUser);
 
 userRoute.use(tokenMiddleware);
 
-userRoute.get('/', controllers.user);
+userRoute.get('/', controllers.getAllUsers);
 
 module.exports = userRoute;
