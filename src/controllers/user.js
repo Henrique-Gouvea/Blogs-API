@@ -12,7 +12,7 @@ const addUser = async (req, res, next) => {
 const getAllUsers = async (req, res, next) => {
   try {
     const users = await services.getAllUsers();
-    res.status(200).json({ users });
+    res.status(200).json(users);
   } catch (error) {
     next(error);
   }
