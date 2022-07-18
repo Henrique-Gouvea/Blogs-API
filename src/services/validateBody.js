@@ -38,4 +38,17 @@ const validateUser = ({ displayName, email, password }) => {
   }
 };
 
-module.exports = { validateLogin, validateCredentials, validateUser };
+const validateCategories = ({ name }) => {
+  if (!name) {
+    const e = new Error('"name" is required');
+    e.name = 'ValidationError';
+    throw e;
+  }
+};
+
+module.exports = {
+  validateLogin,
+  validateCredentials,
+  validateUser,
+  validateCategories,
+};
