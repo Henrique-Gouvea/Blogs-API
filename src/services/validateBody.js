@@ -11,10 +11,8 @@ const validateCredentials = async ({ email, password }) => {
     e.name = 'ValidationError';
     throw e;
   }
-  console.log(password);
-  console.log(user.password);
 
-  // checkPassword(password, user.password);
+  checkPassword(password, user.password);
   return '123456';
 };
 
