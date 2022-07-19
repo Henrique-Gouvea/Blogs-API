@@ -1,6 +1,7 @@
 // const loginSchema = require('../schema/loginSchema');
 const userSchema = require('../schema/userSchema');
 const postSchema = require('../schema/postSchema');
+const postUpdateSchema = require('../schema/postUpdateSchema');
 
 const { User } = require('../database/models');
 
@@ -69,7 +70,7 @@ const validatePost = async ({ title, content, categoryIds }) => {
 };
 
 const validatePostUpdated = (title, content) => {
-  const { error } = postSchema.validate({ title, content });
+  const { error } = postUpdateSchema.validate({ title, content });
 
   if (error) {
     const e = new Error(error.message);

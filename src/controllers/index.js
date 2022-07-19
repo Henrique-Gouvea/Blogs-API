@@ -1,5 +1,5 @@
 const login = require('./login');
-const { addUser, getAllUsers, getUserId } = require('./user');
+const { addUser, getAllUsers, getUserId, deleteUser } = require('./user');
 const { addCategorie, getAllCategories } = require('./categorie');
 const { addPost, getAllPosts, getPostId, updatePost } = require('./post');
 
@@ -9,6 +9,7 @@ module.exports = {
   addUser,
   getAllUsers,
   getUserId,
+  deleteUser,
 
   addCategorie,
   getAllCategories,

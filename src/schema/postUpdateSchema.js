@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const ERROR_MESSAGE = 'Some required fields are missing';
 
-const postSchema = Joi.object({
+const postUpdateSchema = Joi.object({
   title: Joi
     .string()
     .min(1)
@@ -17,12 +17,6 @@ const postSchema = Joi.object({
       'string.empty': ERROR_MESSAGE,
       'any.required': ERROR_MESSAGE,
     }),
-    categoryIds: Joi
-    .array()
-    .required()
-    .messages({
-      'any.required': ERROR_MESSAGE,
-    }),
 }).required();
 
-module.exports = postSchema;
+module.exports = postUpdateSchema;

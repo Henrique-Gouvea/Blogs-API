@@ -28,4 +28,14 @@ const getUserId = async (req, res, next) => {
   }
 };
 
-module.exports = { addUser, getAllUsers, getUserId };
+const deleteUser = async (req, res, next) => {
+  try {
+    const { email } = req.user;
+    await services.deleteUser(email);
+    res.status(204).json();
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addUser, getAllUsers, getUserId, deleteUser };
