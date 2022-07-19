@@ -1,5 +1,5 @@
 const { validatePost } = require('./validateBody');
-const { BlogPost, User, PostCategory } = require('../database/models');
+const { BlogPost, User, PostCategory, Category } = require('../database/models');
 
 const addPost = async (title, content, categoryIds, email) => {
   const { dataValues } = await User.findOne({ where: { email } });
@@ -21,4 +21,26 @@ const addPost = async (title, content, categoryIds, email) => {
   return newPost;
 };
 
-module.exports = { addPost };
+const getAllPosts = async () => {
+  const posts = await BlogPost.findAll({
+    include: [
+      { model: User, 
+        as: 'user',
+        attributes: { exclude: 'password' },
+      },
+      { model: Category,
+        as: 'categories',
+        through: { attributes: [] },
+      },
+    ],
+  });
+
+  if (!posts) {
+    const e = new Error('Problem in DB');
+    e.name = 'InternalServer';
+    throw e;
+  }
+  return posts;
+};
+
+module.exports = { addPost, getAllPosts };

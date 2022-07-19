@@ -8,4 +8,6 @@ postRoute.use(tokenMiddleware);
 
 postRoute.post('/', controllers.addPost);
 
+postRoute.get('/', controllers.getAllPosts);
+
 module.exports = postRoute;

@@ -10,7 +10,7 @@ const { checkPassword } = require('./password');
 const { createToken, validateToken } = require('./token');
 const { addUser, getAllUsers, getUserId } = require('./user');
 const { addCategorie, getAllCategories, getAllIdsCategories } = require('./categories');
-const { addPost } = require('./post');
+const { addPost, getAllPosts } = require('./post');
 
 module.exports = {
   validateLogin,
@@ -32,4 +32,5 @@ module.exports = {
   getAllIdsCategories,
 
   addPost,
+  getAllPosts,
 };

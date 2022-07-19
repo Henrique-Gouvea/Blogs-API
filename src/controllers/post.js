@@ -11,4 +11,13 @@ const addPost = async (req, res, next) => {
   }
 };
 
-module.exports = { addPost };
+const getAllPosts = async (_req, res, next) => {
+  try {
+    const posts = await services.getAllPosts();
+    res.status(200).json(posts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addPost, getAllPosts };
