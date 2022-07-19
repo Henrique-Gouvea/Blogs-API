@@ -10,4 +10,6 @@ postRoute.post('/', controllers.addPost);
 
 postRoute.get('/', controllers.getAllPosts);
 
+postRoute.get('/:id', controllers.getPostId);
+
 module.exports = postRoute;
