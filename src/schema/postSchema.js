@@ -17,12 +17,12 @@ const postSchema = Joi.object({
       'string.empty': ERROR_MESSAGE,
       'any.required': ERROR_MESSAGE,
     }),
-    categoryIds: Joi
-    .array()
-    .required()
-    .messages({
-      'any.required': ERROR_MESSAGE,
-    }),
+    // categoryIds: Joi
+    // .array()
+    // .required()
+    // .messages({
+    //   'any.required': ERROR_MESSAGE,
+    // }),
 }).required();
 
 module.exports = postSchema;

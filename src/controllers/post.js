@@ -24,10 +24,22 @@ const getPostId = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await services.getPostId(id);
-    res.status(200).json(post[0]);
+    res.status(200).json(post);
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { addPost, getAllPosts, getPostId };
+const updatePost = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { title, content } = req.body;
+    const { email } = req.user;
+    const post = await services.updatePost(id, title, content, email);
+    res.status(200).json(post);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addPost, getAllPosts, getPostId, updatePost };

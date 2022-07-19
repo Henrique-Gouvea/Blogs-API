@@ -68,10 +68,21 @@ const validatePost = async ({ title, content, categoryIds }) => {
   }
 };
 
+const validatePostUpdated = (title, content) => {
+  const { error } = postSchema.validate({ title, content });
+
+  if (error) {
+    const e = new Error(error.message);
+    e.name = 'ValidationError';
+    throw e;
+  }
+};
+
 module.exports = {
   validateLogin,
   validateCredentials,
   validateUser,
   validateCategorie,
   validatePost,
+  validatePostUpdated,
 };

@@ -12,4 +12,6 @@ postRoute.get('/', controllers.getAllPosts);
 
 postRoute.get('/:id', controllers.getPostId);
 
+postRoute.put('/:id', controllers.updatePost);
+
 module.exports = postRoute;
