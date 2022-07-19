@@ -3,18 +3,21 @@ const {
   validateCredentials,
   validateUser,
   validateCategories,
+  validatePost,
 } = require('./validateBody');
 
 const { checkPassword } = require('./password');
 const { createToken, validateToken } = require('./token');
 const { addUser, getAllUsers, getUserId } = require('./user');
-const { addCategorie, getAllCategories } = require('./categories');
+const { addCategorie, getAllCategories, getAllIdsCategories } = require('./categories');
+const { addPost } = require('./post');
 
 module.exports = {
   validateLogin,
   validateCredentials,
   validateCategories,
   validateUser,
+  validatePost,
 
   checkPassword,
   createToken,
@@ -26,4 +29,7 @@ module.exports = {
 
   addCategorie,
   getAllCategories,
+  getAllIdsCategories,
+
+  addPost,
 };

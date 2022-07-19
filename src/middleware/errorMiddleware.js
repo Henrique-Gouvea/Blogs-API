@@ -7,6 +7,7 @@ const errors = {
   };
 
 module.exports = ({ name, message }, _req, res, _next) => {
+  console.log('entrou middleware erro');
   console.log(message);
   const status = errors[name];
   console.log(status);

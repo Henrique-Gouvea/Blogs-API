@@ -1,8 +1,12 @@
 // const loginSchema = require('../schema/loginSchema');
 const userSchema = require('../schema/userSchema');
+const postSchema = require('../schema/postSchema');
+
 const { User } = require('../database/models');
+
 const { checkPassword } = require('./password');
 const { createToken } = require('./token');
+const { getAllIdsCategories } = require('./categories');
 
 const validateCredentials = async ({ email, password }) => {
   const user = await User.findOne({ where: { email } });
@@ -46,9 +50,28 @@ const validateCategories = ({ name }) => {
   }
 };
 
+const validatePost = async ({ title, content, categoryIds }) => {
+  const { error } = postSchema.validate({ title, content, categoryIds });
+
+  if (error) {
+    const e = new Error(error.message);
+    e.name = 'ValidationError';
+    throw e;
+  }
+
+  const allCategoryIdsDB = await getAllIdsCategories();
+  const haveCategory = allCategoryIdsDB.filter((catDB) => categoryIds.includes(catDB));
+  if (haveCategory.length === 0) {
+    const e = new Error('"categoryIds" not found');
+    e.name = 'ValidationError';
+    throw e;
+  }
+};
+
 module.exports = {
   validateLogin,
   validateCredentials,
   validateUser,
   validateCategories,
+  validatePost,
 };

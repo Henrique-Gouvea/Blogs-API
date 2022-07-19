@@ -25,4 +25,16 @@ const getAllCategories = async () => {
   return categories;
 };
 
-module.exports = { addCategorie, getAllCategories };
+const getAllIdsCategories = async () => {
+  const categories = await Category.findAll();
+  if (!categories) {
+    const e = new Error('Problem in DB');
+    e.name = 'InternalServer';
+    throw e;
+  }
+  const categoriesId = categories.map((cat) => cat.dataValues.id);
+
+  return categoriesId;
+};
+
+module.exports = { addCategorie, getAllCategories, getAllIdsCategories };

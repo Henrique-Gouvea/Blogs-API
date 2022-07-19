@@ -9,7 +9,8 @@ const tokenMiddleware = (req, _res, next) => {
       e.name = 'Unauthorized';
       throw e;
     }
-    validateToken(authorization);
+    const user = validateToken(authorization);
+    req.user = user;
     next();
   } catch (error) {
     next(error);
