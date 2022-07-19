@@ -1,8 +1,12 @@
-const { validateCategories } = require('./validateBody');
 const { Category } = require('../database/models');
 
 const addCategorie = async ({ name }) => {
-  validateCategories({ name });
+  if (!name) {
+    const e = new Error('"name" is required');
+    e.name = 'ValidationError';
+    throw e;
+  }
+
   const verifyUser = await Category.findOne({ where: { name } });
   if (verifyUser) {
     const e = new Error('Category already registered');

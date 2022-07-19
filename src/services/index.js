@@ -2,7 +2,7 @@ const {
   validateLogin,
   validateCredentials,
   validateUser,
-  validateCategories,
+  validateCategorie,
   validatePost,
 } = require('./validateBody');
 
@@ -15,7 +15,7 @@ const { addPost } = require('./post');
 module.exports = {
   validateLogin,
   validateCredentials,
-  validateCategories,
+  validateCategorie,
   validateUser,
   validatePost,
 

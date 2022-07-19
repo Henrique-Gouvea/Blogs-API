@@ -42,7 +42,7 @@ const validateUser = ({ displayName, email, password }) => {
   }
 };
 
-const validateCategories = ({ name }) => {
+const validateCategorie = (name) => {
   if (!name) {
     const e = new Error('"name" is required');
     e.name = 'ValidationError';
@@ -72,6 +72,6 @@ module.exports = {
   validateLogin,
   validateCredentials,
   validateUser,
-  validateCategories,
+  validateCategorie,
   validatePost,
 };
