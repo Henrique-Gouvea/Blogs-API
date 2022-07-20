@@ -14,4 +14,6 @@ postRoute.get('/:id', controllers.getPostId);
 
 postRoute.put('/:id', controllers.updatePost);
 
+postRoute.delete('/:id', controllers.deletePost);
+
 module.exports = postRoute;

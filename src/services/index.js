@@ -4,13 +4,20 @@ const {
   validateUser,
   validateCategorie,
   validatePost,
+  validatePostUpdated,
 } = require('./validateBody');
 
 const { checkPassword } = require('./password');
 const { createToken, validateToken } = require('./token');
-const { addUser, getAllUsers, getUserId } = require('./user');
+const { addUser, getAllUsers, getUserId, deleteUser } = require('./user');
 const { addCategorie, getAllCategories, getAllIdsCategories } = require('./categories');
-const { addPost, getAllPosts, getPostId, updatePost, validatePostUpdated } = require('./post');
+const {
+  addPost,
+  getAllPosts,
+  getPostId,
+  updatePost,
+  deletePost,
+} = require('./post');
 
 module.exports = {
   validateLogin,
@@ -18,6 +25,7 @@ module.exports = {
   validateCategorie,
   validateUser,
   validatePost,
+  validatePostUpdated,
 
   checkPassword,
   createToken,
@@ -26,6 +34,7 @@ module.exports = {
   addUser,
   getAllUsers,
   getUserId,
+  deleteUser,
 
   addCategorie,
   getAllCategories,
@@ -35,5 +44,5 @@ module.exports = {
   getAllPosts,
   getPostId,
   updatePost,
-  validatePostUpdated,
+  deletePost,
 };

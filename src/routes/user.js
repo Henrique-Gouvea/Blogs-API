@@ -10,7 +10,7 @@ userRoute.use(tokenMiddleware);
 
 userRoute.get('/', controllers.getAllUsers);
 
-userRoute.delete('/user/me', controllers.deleteUser);
+userRoute.delete('/me', controllers.deleteUser);
 
 userRoute.get('/:id', controllers.getUserId);
 

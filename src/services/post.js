@@ -85,4 +85,26 @@ const updatePost = async (id, title, content, email) => {
   return postUpdated;
 };
 
-module.exports = { addPost, getAllPosts, getPostId, updatePost };
+const deletePost = async (id, email) => {
+  const { dataValues } = await User.findOne({ where: { email } });
+  const userLoggedId = dataValues.id;
+  const post = await BlogPost.findOne({ where: { id } });
+  
+  if (!post) {
+    const e = new Error('Post does not exist');
+    e.name = 'NotFound';
+    throw e;
+  }
+
+  const userPostId = post.dataValues.id;
+  console.log(userLoggedId, userPostId);
+  if (userLoggedId !== userPostId) {
+    const e = new Error('Unauthorized user');
+    e.name = 'Unauthorized';
+    throw e;
+  }
+    
+  await BlogPost.destroy({ where: { id } });
+};
+
+module.exports = { addPost, getAllPosts, getPostId, updatePost, deletePost };
