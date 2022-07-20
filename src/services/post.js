@@ -96,8 +96,9 @@ const deletePost = async (id, email) => {
     throw e;
   }
 
-  const userPostId = post.dataValues.id;
-  console.log(userLoggedId, userPostId);
+  const userPostId = post.dataValues.userId;
+  console.log(`user logado${userLoggedId}`);
+  console.log(`user criou post${userPostId}`);
   if (userLoggedId !== userPostId) {
     const e = new Error('Unauthorized user');
     e.name = 'Unauthorized';
