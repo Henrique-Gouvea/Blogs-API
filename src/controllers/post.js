@@ -54,4 +54,16 @@ const deletePost = async (req, res, next) => {
   }
 };
 
-module.exports = { addPost, getAllPosts, getPostId, updatePost, deletePost };
+const getSearch = async (req, res, next) => {
+  try {
+    const { q } = req.query;
+    console.log(`query /////${q}`);
+    const result = await services.getSearch(q);
+    console.log(`result------------------${result}`);
+    res.status(204).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addPost, getAllPosts, getPostId, updatePost, deletePost, getSearch };

@@ -10,6 +10,8 @@ postRoute.post('/', controllers.addPost);
 
 postRoute.get('/', controllers.getAllPosts);
 
+postRoute.get('/search', controllers.getSearch);
+
 postRoute.get('/:id', controllers.getPostId);
 
 postRoute.put('/:id', controllers.updatePost);

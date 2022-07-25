@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { validatePost, validatePostUpdated } = require('./validateBody');
 const { BlogPost, User, PostCategory, Category } = require('../database/models');
 
@@ -97,8 +98,7 @@ const deletePost = async (id, email) => {
   }
 
   const userPostId = post.dataValues.userId;
-  console.log(`user logado${userLoggedId}`);
-  console.log(`user criou post${userPostId}`);
+
   if (userLoggedId !== userPostId) {
     const e = new Error('Unauthorized user');
     e.name = 'Unauthorized';
@@ -108,4 +108,21 @@ const deletePost = async (id, email) => {
   await BlogPost.destroy({ where: { id } });
 };
 
-module.exports = { addPost, getAllPosts, getPostId, updatePost, deletePost };
+const getSearch = async (search) => {
+  const post = await BlogPost.findAll({ 
+    where: {
+      [Op.or]: [
+        { title: { [Op.like]: `%${search}%` } },
+        { content: { [Op.like]: `%${search}%` } },
+      ],
+    },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: 'password' } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ], 
+  });
+
+  return post;
+};
+
+module.exports = { addPost, getAllPosts, getPostId, updatePost, deletePost, getSearch };

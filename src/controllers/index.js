@@ -1,7 +1,14 @@
 const login = require('./login');
 const { addUser, getAllUsers, getUserId, deleteUser } = require('./user');
 const { addCategorie, getAllCategories } = require('./categorie');
-const { addPost, getAllPosts, getPostId, updatePost, deletePost } = require('./post');
+const {
+  addPost,
+  getAllPosts,
+  getPostId,
+  updatePost,
+  deletePost,
+  getSearch,
+} = require('./post');
 
 module.exports = {
   login,
@@ -19,4 +26,5 @@ module.exports = {
   getPostId,
   updatePost,
   deletePost,
+  getSearch,
 };

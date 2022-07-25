@@ -17,6 +17,7 @@ const {
   getPostId,
   updatePost,
   deletePost,
+  getSearch,
 } = require('./post');
 
 module.exports = {
@@ -45,4 +46,5 @@ module.exports = {
   getPostId,
   updatePost,
   deletePost,
+  getSearch,
 };
