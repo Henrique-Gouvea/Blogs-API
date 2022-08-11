@@ -1,5 +1,5 @@
 <h1 align="center">
-   Itens-Medievais-API
+   Blogs-API
 </h1>
 
 <p align="center">
