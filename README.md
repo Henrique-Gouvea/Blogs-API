@@ -52,6 +52,23 @@ As seguintes ferramentas foram usadas na construção do projeto:
     "password": "string"
   }
 ```
+
+---
+
+## O endpoint adiciona um novo user a sua tabela no banco de dados;
+
+- O endpoint acessível através do caminho POST(`/user`);
+- 
+- O endpoint recebe a estrutura abaixo e retorna como resposta um token:
+```json
+   {
+     "displayName": "string",
+     "email": "string",
+     "password": "string",,
+     "image": "string",
+   }
+```
+
 ---
 
 ## Todos os EndPoins abaixo necessitam do Token na requisição
@@ -63,6 +80,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - O endpoint acessível através do caminho GET(`/user`);
 
 Retorna todos os usuarios cadastrados
+
 ---
 
 ## O endpoint traz o user baseado no id do banco de dados se ele existir
@@ -84,19 +102,55 @@ Retorna o usuario com o id passado.
 }
 ```
 ---
-## Endpoint para listar todos os pedidos
+## Endpoint para listar todos as categorias
 
-- O endpoint acessível através do caminho GET(`/orders`).
-- Essa rota retorna todos os pedidos e os `id`s dos produtos associados a estes.
+- O endpoint acessível através do caminho GET(`/categories`).
+
+- O endpoint traz todas categorias do banco de dados;
 ---
 
-## Endpoint para o cadastro de um pedido
+## O endpoint é capaz de adicionar um novo blog post e vinculá-lo as categorias em suas tabelas no banco de dados;
 
-- O endpoint deve ser acessível através do caminho POST(`/orders`);
+- O endpoint deve ser acessível através do caminho POST(`/post`);
 
 - O endpoint deve receber a seguinte estrutura:
 ```json
-  {
-    "productsIds": [1, 2]
-  }
+   {
+     "title": "string",
+     "content": "string",
+     "categoryIds": array(Contendo os Ids das categorias)
+   }
+   
+---
+## Endpoint para listar todos as categorias
 
+- O endpoint acessível através do caminho GET(`/post`).
+
+- Exemplo de retorno:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Post do Ano",
+    "content": "Melhor post do ano",
+    "userId": 1,
+    "published": "2011-08-01T19:58:00.000Z",
+    "updated": "2011-08-01T19:58:51.000Z",
+    "user": {
+      "id": 1,
+      "displayName": "Lewis Hamilton",
+      "email": "lewishamilton@gmail.com",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg"
+    },
+    "categories": [
+      {
+        "id": 1,
+        "name": "Inovação"
+      }
+    ]
+  },
+  
+  /* ... */
+]
+---
