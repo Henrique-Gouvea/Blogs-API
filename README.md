@@ -11,7 +11,8 @@
 
 ## 💻 Sobre o projeto
 
-Nesse projeto o objetivo foi desenvolver um CRUD (Create, Read, Update e Delete) para montar uma API e um banco de dados para a produção de conteúdo para um blog. 🚀
+Nesse projeto o objetivo foi desenvolver um CRUD (Create, Read, Update e Delete) para montar uma API e um banco de dados para a produção de conteúdo para um blog,com uma camada de autenticação de pessoas usuárias.
+ 🚀
 
 ## 🚀 Como executar o projeto
 
@@ -21,7 +22,7 @@ Executar o comando npm install
 
 Criar um arquivo .env na raiz do projeto(passar as variaveis de ambiente especificadas em .env.example)
 
-Executar o comando npm run dev
+Executar o comando npm start ou npm run debug
 
 A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
@@ -36,39 +37,50 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[JSON-WebToken](https://github.com/auth0/node-jsonwebtoken)**
 -   **[Nodemon](https://github.com/remy/nodemon)**
 
+---
 
-## Endpoint para o cadastro de produtos
+## Endpoint para o login de pessoas usuárias
 
-- O endpoint acessível através do caminho POST(`/products`);
+- O endpoint acessível através do caminho POST(`/login`).
 
-- O endpoint deve receber a seguinte estrutura:
+- A rota deve receber os campos `username` e `password`.
+
+- O endpoint recebe a estrutura abaixo e retorna como resposta um token:
 ```json
   {
-    "name": "Espada longa",
-    "amount": "30 peças de ouro"
+    "email": "string",
+    "password": "string"
   }
 ```
 ---
 
-## Endpoint para a listagem de produtos
-
-- O endpoint acessível através do caminho GET(`/products`);
-
-Retorna todos os produtos cadastrados
+## Todos os EndPoins abaixo necessitam do Token na requisição
 
 ---
 
-## Endpoint para o cadastro de pessoas usuárias
+## O endpoint traz todos users do banco de dados;
 
-- O endpoint acessível através do caminho POST(`/user`);
+- O endpoint acessível através do caminho GET(`/user`);
+
+Retorna todos os usuarios cadastrados
+---
+
+## O endpoint traz o user baseado no id do banco de dados se ele existir
+
+- O endpoint acessível através do caminho GET(`/user/:id`);
+
+Retorna o usuario com o id passado.
+
+---
+
+## O endpoint adiciona uma nova categoria a sua tabela no banco de dados
+
+- O endpoint acessível através do caminho POST(`/categories`);
 
 - O endpoint deve receber a seguinte estrutura:
 ```json
 {
-  "displayName": "string",
-  "email": "string",
-  "password": "string",
-  "image": "string"
+  "name": "Typescript"
 }
 ```
 ---
@@ -77,20 +89,7 @@ Retorna todos os produtos cadastrados
 - O endpoint acessível através do caminho GET(`/orders`).
 - Essa rota retorna todos os pedidos e os `id`s dos produtos associados a estes.
 ---
-## Endpoint para o login de pessoas usuárias
 
-- O endpoint acessível através do caminho POST(`/login`).
-
-- A rota deve receber os campos `username` e `password`.
-
-- O endpoint recebe a seguinte estrutura:
-```json
-  {
-    "username": "string",
-    "password": "string"
-  }
-```
----
 ## Endpoint para o cadastro de um pedido
 
 - O endpoint deve ser acessível através do caminho POST(`/orders`);
