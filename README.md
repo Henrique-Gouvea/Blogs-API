@@ -91,6 +91,12 @@ Retorna o usuario com o id passado.
 
 ---
 
+## O endpoint é capaz de deletar você do banco de dados, baseado no id que esta dentro do seu token;
+
+- O endpoint deve ser acessível através do caminho DELETE(`/user/:me`);
+
+---
+
 ## O endpoint adiciona uma nova categoria a sua tabela no banco de dados
 
 - O endpoint acessível através do caminho POST(`/categories`);
@@ -154,3 +160,32 @@ Retorna o usuario com o id passado.
   /* ... */
 ]
 ---
+
+## O endpoint traz o blog post baseado no id do banco de dados se ele existir;
+
+- O endpoint deve ser acessível através do caminho GET(`/post/:id`);
+
+---
+
+## O endpoint é capaz de alterar um post do banco de dados, se ele existir;
+
+- O endpoint deve ser acessível através do caminho POST(`/post/:id`);
+
+- O endpoint deve receber a seguinte estrutura:
+```json
+   {
+     "title": "string",
+     "content": "string"
+   }
+   ```
+---
+
+## O endpoint é capaz de deletar um blog post baseado no id do banco de dados se ele existir;
+
+- O endpoint deve ser acessível através do caminho DELETE(`/post/:id`);
+
+---
+
+
+
+
