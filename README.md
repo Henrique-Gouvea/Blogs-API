@@ -159,6 +159,7 @@ Retorna o usuario com o id passado.
   
   /* ... */
 ]
+```
 ---
 
 ## O endpoint traz o blog post baseado no id do banco de dados se ele existir;
