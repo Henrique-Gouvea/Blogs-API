@@ -120,7 +120,7 @@ Retorna o usuario com o id passado.
      "content": "string",
      "categoryIds": array(Contendo os Ids das categorias)
    }
-   
+   ```
 ---
 ## Endpoint para listar todos as categorias
 
